@@ -2,9 +2,11 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div>
-      This is hero section
-    </div>
+    <section className='w-full nav-height bg-black relative'>
+        <div className="h-5/6 w-full flex-center flex-col">
+            <p className=''>Iphone 15 Pro</p>
+        </div>
+    </section>
   )
 }
 
