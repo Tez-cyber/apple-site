@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { highlightsSlides } from '../constants'
 import gsap from 'gsap'
+import { useGSAP } from "@gsap/react"
 import { pauseImg, playImg, replayImg } from '../utils'
 
 
@@ -22,6 +23,22 @@ const VideoCarousel = () => {
 
     const { isEnd, startPlay, videoId, isLastVideo, isPlaying } = video
 
+    //============= useGSAP
+    useGSAP(() => {
+        gsap.to('#video', {
+            scrollTrigger: {
+                trigger: '#video',
+                toggleActions: 'restart none none none',
+            },
+            onComplete: () => {
+                setVideo((prev) => ({
+                    ...prev,
+                    startPlay: true,
+                    isPlaying: true
+                }))
+            }
+        })
+    }, [isEnd, videoId])
     // ============ useEffects
     useEffect(() => {
         if (loadedData.length > 3) {
