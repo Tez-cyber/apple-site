@@ -106,6 +106,7 @@ const VideoCarousel = () => {
                                         onPlay={() => {
                                             setVideo((prevVideo) => ({ ...prevVideo, isPlaying: true }))
                                         }}
+                                        onLoadedMetadata={(e) => handleLoadedMetaData(i, e)}
                                     >
                                         <source src={list.video} type='video/mp4' />
                                     </video>
