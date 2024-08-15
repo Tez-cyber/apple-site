@@ -1,6 +1,6 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import ModelView from './ModelView'
 import { yellowImg } from '../utils'
 
@@ -12,6 +12,10 @@ const Model = () => {
         color: ['#8F8A81', '#FFE7B9', '#6F6C64'],
         img: yellowImg
     })
+
+    //======== camera control for model view
+    const cameraControlSmall = useRef()
+    const cameraControlLarge = useRef()
 
     //=========== useGSAP
     useGSAP(() => {
