@@ -16,6 +16,7 @@ const Model = () => {
     //======== camera control for model view
     const cameraControlSmall = useRef()
     const cameraControlLarge = useRef()
+    const small = useRef(new THREE.Group())
 
     //=========== useGSAP
     useGSAP(() => {
