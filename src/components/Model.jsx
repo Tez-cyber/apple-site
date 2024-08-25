@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import React, { useRef, useState } from 'react'
 import ModelView from './ModelView'
 import { yellowImg } from '../utils'
+import * as THREE from 'three'
 
 const Model = () => {
     //========= useState
@@ -12,11 +13,17 @@ const Model = () => {
         color: ['#8F8A81', '#FFE7B9', '#6F6C64'],
         img: yellowImg
     })
+    const [smallRotation, setSmallRotation] = useState(0)
+    const [largeRotation, setLargeRotation] = useState(0)
 
     //======== camera control for model view
     const cameraControlSmall = useRef()
     const cameraControlLarge = useRef()
+
+
+    //=========== models
     const small = useRef(new THREE.Group())
+    const large = useRef(new THREE.Group())
 
     //=========== useGSAP
     useGSAP(() => {
@@ -34,7 +41,24 @@ const Model = () => {
 
             <div className="flex flex-col items-center mt-5">
                 <div className="w-full h-[75vh] overflow-hidden relative md:h-[90vh]">
-                    <ModelView />
+                    <ModelView
+                        index = {1}
+                        groupRef = {small}
+                        gsapType = "view1"
+                        controlRef = {cameraControlSmall}
+                        setRotationState = {setSmallRotation}
+                        item = {model}
+                        size = {size}
+                    />
+                    <ModelView
+                        index = {2}
+                        groupRef = {large}
+                        gsapType = "view2"
+                        controlRef = {cameraControlLarge}
+                        setRotationState = {setLargeRotation}
+                        item = {model}
+                        size = {size}
+                    />
                 </div>
             </div>
         </div>
