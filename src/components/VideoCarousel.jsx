@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { highlightsSlides } from '../constants'
 import gsap from 'gsap'
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger);
 import { useGSAP } from "@gsap/react"
+import { highlightsSlides } from '../constants'
 import { pauseImg, playImg, replayImg } from '../utils'
 
 
