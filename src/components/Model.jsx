@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { yellowImg } from "../utils";
 
 import * as THREE from 'three';
-import { View } from "@react-three/drei";
 import { models, sizes } from "../constants";
 import CanvasModel from "./CanvasModel";
 
