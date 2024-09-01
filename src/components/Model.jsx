@@ -1,11 +1,13 @@
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-import React, { useRef, useState } from 'react'
-import ModelView from './ModelView'
-import { yellowImg } from '../utils'
-import * as THREE from 'three'
-import { Canvas } from '@react-three/fiber'
-import { View } from '@react-three/drei'
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap";
+import ModelView from "./ModelView";
+import { useEffect, useRef, useState } from "react";
+import { yellowImg } from "../utils";
+
+import * as THREE from 'three';
+import { Canvas } from "@react-three/fiber";
+import { View } from "@react-three/drei";
+import { models, sizes } from "../constants";
 
 const Model = () => {
     //========= useState
@@ -61,8 +63,7 @@ const Model = () => {
                         item = {model}
                         size = {size}
                     />
-
-                    {/* <Canvas
+                    <Canvas
                         className='w-full h-full'
                         style = {{
                             position: 'fixed',
@@ -75,7 +76,7 @@ const Model = () => {
                         eventSource={document.getElementById('root')}
                     >
                         <View.Port />
-                    </Canvas> */}
+                    </Canvas>
                 </div>
             </div>
         </div>
